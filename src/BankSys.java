@@ -4,6 +4,7 @@ public class BankSys {
     int idCode, contactNumber;
     String firstName, lastName;
     float amount, balance, rates;
+    boolean status;
 
     Scanner in = new Scanner(System.in);
     int optValue;
@@ -64,20 +65,48 @@ public class BankSys {
         this.rates = rates;
     }
 
-    public Scanner getIn() {
-        return in;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setIn(Scanner in) {
-        this.in = in;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
+
+
 
     void displayOptions(){
         System.out.print("[ 1 ] Balance \n[ 2 ] Deposit \n[ 3 ] Withdraw \n[ 4 ] Check Balance \n[ 5 ] Exit \n[ >> ] Enter: ");
         optValue = in.nextInt();
+        switch (optValue){
+            case 1:
+                balance();
+                break;
+            case 2:
+                deposit();
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 0:
+                break;
+        }
     }
 
     void balance(){
-
+        System.out.println("Balance Test");
     }
+    void deposit(){
+        System.out.println("Deposit Test");
+    }
+    void withdraw(){
+        System.out.println("Withdraw Test");
+    }
+    void checkAcc(){
+        System.out.println("Check Account Terms Test");
+    }
+
 }
