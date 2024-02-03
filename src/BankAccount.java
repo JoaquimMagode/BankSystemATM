@@ -34,6 +34,9 @@ public class BankAccount {
     public void setAge(int age) {
         this.age = age;
     }
+    void displayOptions(){
+        System.out.println("First Name: ");
+    }
 
     void createAccount(String firstName,String lastName,int age){
         if (age < 19)
