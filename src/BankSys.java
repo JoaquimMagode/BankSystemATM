@@ -65,7 +65,7 @@ public class BankSys {
         this.rates = rates;
     }
 
-    public boolean isStatus() {
+    public boolean getStatus() {
         return status;
     }
 
@@ -81,17 +81,23 @@ public class BankSys {
         switch (optValue){
             case 1:
                 balance();
+                BankSys i1 = new BankSys();
+                i1.displayOptions();
                 break;
             case 2:
-                deposit();
+                deposit(status);
+                BankSys i2 = new BankSys();
+                i2.displayOptions();
                 break;
             case 3:
                 break;
             case 4:
                 break;
             case 5:
+
                 break;
             case 0:
+
                 break;
         }
     }
@@ -99,8 +105,11 @@ public class BankSys {
     void balance(){
         System.out.println("Balance Test");
     }
-    void deposit(){
-        System.out.println("Deposit Test");
+    void deposit(boolean status){
+        if (status == true){
+            System.out.println("Already to Make a Deposit on Account");
+        }
+        System.out.println("Deposit Test"+ getStatus());
     }
     void withdraw(){
         System.out.println("Withdraw Test");
