@@ -1,6 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-        BankSys sys = new BankSys();
-        sys.displayOptions();
+        System.out.println("[ 1 ] Open Account \n[ 2 ] Main Operation\n[ >> ] Enter: ");
     }
 }
