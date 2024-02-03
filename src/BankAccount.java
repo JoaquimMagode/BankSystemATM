@@ -50,13 +50,4 @@ public class BankAccount {
         i2.deposit(true);
     }
 
-    void createAccount(String firstName,String lastName,int age){
-        if (age < 19)
-        {
-            System.out.println("Student Account "+getFirstName());
-        }else {
-            System.out.println("Saving Account");
-        }
-
-    }
 }

@@ -76,7 +76,7 @@ public class BankSys {
 
 
     void displayOptions(){
-        System.out.print("[ 1 ] Balance \n[ 2 ] Deposit \n[ 3 ] Withdraw \n[ 4 ] Check Balance \n[ 5 ] Exit \n[ >> ] Enter: ");
+        System.out.print("[ 1 ] Balance \n[ 2 ] Deposit \n[ 3 ] Withdraw \n[ 4 ] Check Balance \n[ 5 ] Go to Main \n[ >> ] Enter: ");
         optValue = in.nextInt();
         switch (optValue){
             case 1:
@@ -103,11 +103,15 @@ public class BankSys {
     }
 
     void balance(){
-        System.out.println("Balance Test");
+        System.out.println("Balance Test:  "+getBalance());
     }
     void deposit(boolean status){
         if (status == true){
             System.out.println("Already to Make a Deposit on Account");
+            System.out.print("Amount: ");
+            setAmount(in.nextFloat());
+
+            setBalance(getAmount()+getBalance());
         }
         System.out.println("Deposit Test"+ getStatus());
     }
