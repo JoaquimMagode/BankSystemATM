@@ -1,10 +1,19 @@
 import java.util.Scanner;
-
+import java.util.ArrayList;
 public class BankAccount {
     String firstName, lastName;
     int mobileNumber;
     int age;
     Scanner in = new Scanner(System.in);
+
+    ArrayList<Object> savedUser = new ArrayList<>();
+
+    public ArrayList<Object> getSavedUser() {
+        return savedUser;
+    }
+
+    public void setSavedUser() {
+    }
 
     public String getFirstName() {
         return firstName;
@@ -37,17 +46,30 @@ public class BankAccount {
     public void setAge(int age) {
         this.age = age;
     }
-    void displayOptions(){
-        System.out.print("First Name: ");
-        setFirstName(in.next());
-        System.out.print("Last Name: ");
-        setLastName(in.next());
-        System.out.print("Age: ");
-        setAge(in.nextInt());
-        System.out.print("Mobile Number: ");
-        setMobileNumber(in.nextInt());
-        BankSys i2 = new BankSys();
-        i2.deposit(true);
-    }
 
+    void savedAccount(){
+
+    }
+    void displayOptions(){
+
+
+        System.out.print("First Name: ");
+        savedUser.add(in.next());
+        System.out.print("Last Name: ");
+        savedUser.add(in.next());
+        System.out.print("Age: ");
+        savedUser.add(in.nextInt());
+        BankSys bankSys = new BankSys();
+        System.out.println("-----------------------------------------------------------------------------");
+        for (Object o : getSavedUser()) System.out.println(o);
+        bankSys.setUserBank(getSavedUser());
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("You Account was Successful created.");
+
+        bankSys.displayOptions();
 }
+
+    private void setSavedUser(boolean add) {
+       // add = savedUser.add(in.next());
+    }
+    }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BankSys {
@@ -6,7 +7,18 @@ public class BankSys {
     float amount, balance, rates;
     boolean status;
 
+    ArrayList<Object> userBank = new ArrayList<>();
+
+    public ArrayList<Object> getUserBank() {
+        return userBank;
+    }
+
+    public void setUserBank(ArrayList<Object> userBank) {
+        this.userBank = userBank;
+    }
+
     Scanner in = new Scanner(System.in);
+
     int optValue;
 
     public int getIdCode() {
@@ -73,32 +85,31 @@ public class BankSys {
         this.status = status;
     }
 
-
-
     void displayOptions(){
-        System.out.print("[ 1 ] Balance \n[ 2 ] Deposit \n[ 3 ] Withdraw \n[ 4 ] Check Balance \n[ 5 ] Go to Main \n[ >> ] Enter: ");
-        optValue = in.nextInt();
-        switch (optValue){
-            case 1:
-                balance();
-                BankSys i1 = new BankSys();
-                i1.displayOptions();
+        while (true){
+            System.out.print("[ 1 ] Balance \n[ 2 ] Deposit \n[ 3 ] Withdraw \n[ 4 ] Check Account \n[ 5 ] Go to Main \n[ >> ] Enter: ");
+            optValue = in.nextInt();
+            switch (optValue){
+                case 1:
+                    balance();
+                    BankSys i1;
+                    i1 = (new BankSys());
+                    i1.displayOptions();
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    for (Object o : getUserBank()) System.out.println(o);
+                    System.out.println("Accounting Check...");
+                    break;
+                case 5:
+                    break;
+            }
+            if (optValue == 0){
                 break;
-            case 2:
-                deposit(status);
-                BankSys i2 = new BankSys();
-                i2.displayOptions();
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-
-                break;
-            case 0:
-
-                break;
+            }
         }
     }
 
@@ -110,11 +121,11 @@ public class BankSys {
             System.out.println("Already to Make a Deposit on Account");
             System.out.print("Amount: ");
             setAmount(in.nextFloat());
-
             setBalance(getAmount()+getBalance());
         }
-        System.out.println("Deposit Test"+ getStatus());
+        System.out.println("Deposit Test "+ getStatus());
     }
+
     void withdraw(){
         System.out.println("Withdraw Test");
     }
